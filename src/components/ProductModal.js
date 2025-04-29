@@ -34,7 +34,7 @@ export default function ProductModal({ open, setOpen, editProductId }) {
     React.useEffect(() => {
         if(editProductId) {
             async function fetchProducts() {
-            const response = await fetch(`http://localhost:5001/api/products/${editProductId}`);
+            const response = await fetch(`https://ranasinghemotors-backend.onrender.com/api/products/${editProductId}`);
             const data = await response.json();
             setFormData(data);
             setOpen(true);
@@ -63,7 +63,7 @@ export default function ProductModal({ open, setOpen, editProductId }) {
 
         if(editing) {
 
-            const response = await fetch(`http://localhost:5001/api/products/${editProductId}`, {
+            const response = await fetch(`https://ranasinghemotors-backend.onrender.com/api/products/${editProductId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -80,7 +80,7 @@ export default function ProductModal({ open, setOpen, editProductId }) {
             }
 
         } else {
-            const response = await fetch('http://localhost:5001/api/products', {
+            const response = await fetch('https://ranasinghemotors-backend.onrender.com/api/products', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

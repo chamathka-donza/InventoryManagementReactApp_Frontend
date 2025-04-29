@@ -17,7 +17,7 @@ export default function ViewBrands() {
 
     const fetchBrands = async () => {
         try {
-            const response = await axios.get("http://localhost:5001/api/brands");
+            const response = await axios.get("https://ranasinghemotors-backend.onrender.com/api/brands");
             setBrands(response.data);
         } catch (error) {
             console.error("Error fetching brands", error);
@@ -35,7 +35,7 @@ export default function ViewBrands() {
 
     const handleSave = async (id) => {
         try {
-            await axios.put(`http://localhost:5001/api/brands/${id}`, {
+            await axios.put(`https://ranasinghemotors-backend.onrender.com/api/brands/${id}`, {
                 brand_name: editedBrand.brand_name,
                 brand_description: editedBrand.brand_description,
             });
@@ -54,7 +54,7 @@ export default function ViewBrands() {
     const handleDelete = async (id) => {
         if (window.confirm("Are you sure you want to delete this brand?")) {
             try {
-                await axios.delete(`http://localhost:5001/api/brands/${id}`);
+                await axios.delete(`https://ranasinghemotors-backend.onrender.com/api/brands/${id}`);
                 setBrands(brands.filter((brand) => brand._id !== id));
             } catch (error) {
                 console.error("Error deleting brand", error);

@@ -21,7 +21,7 @@ export default function Header({ toggleSidebar }) {
     useEffect(() => {
         const fetchLowStockItems = async () => {
             try {
-                const response = await axios.get("http://localhost:5001/api/products/low-stock");
+                const response = await axios.get("https://ranasinghemotors-backend.onrender.com/api/products/low-stock");
                 setLowStockItems(response.data);
             } catch (error) {
                 console.error("Error fetching low stock items", error);

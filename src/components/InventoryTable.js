@@ -24,7 +24,7 @@ export default function InventoryTable({ rows, setRows }) {
         // Make the API call to update the backend
         try {
             const updatedRow = updatedRows.find(row => row._id === rowId);
-            await axios.put(`http://localhost:5001/api/products/update-quantity/${rowId}`, {
+            await axios.put(`https://ranasinghemotors-backend.onrender.com/api/products/update-quantity/${rowId}`, {
                 qty: updatedRows.find(row => row.id === rowId).qty
             });
             
@@ -48,7 +48,7 @@ export default function InventoryTable({ rows, setRows }) {
         // Make the API call to update the backend
         try {
             const updatedRow = updatedRows.find(row => row._id === rowId);
-            await axios.put(`http://localhost:5001/api/products/update-quantity/${rowId}`, {
+            await axios.put(`https://ranasinghemotors-backend.onrender.com/api/products/update-quantity/${rowId}`, {
                 qty: updatedRows.find(row => row.id === rowId).qty
             });
             

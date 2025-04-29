@@ -16,7 +16,7 @@ export default function AddVendor() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5001/api/vendors", vendor);
+            await axios.post("https://ranasinghemotors-backend.onrender.com/api/vendors", vendor);
             alert("Vendor added successfully!");
             setVendor({ vendor_code: "", vendor_name: "", contact_no: "" });
         } catch (error) {

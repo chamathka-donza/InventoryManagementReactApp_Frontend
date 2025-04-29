@@ -14,7 +14,7 @@ export default function ViewVendors() {
 
     const fetchVendors = async () => {
         try {
-            const response = await axios.get("http://localhost:5001/api/vendors");
+            const response = await axios.get("https://ranasinghemotors-backend.onrender.com/api/vendors");
             setVendors(response.data);
         } catch (error) {
             console.error("Error fetching vendors", error);
@@ -24,7 +24,7 @@ export default function ViewVendors() {
     const handleDelete = async (id) => {
         if (window.confirm("Are you sure you want to delete this vendor?")) {
             try {
-                await axios.delete(`http://localhost:5001/api/vendors/${id}`);
+                await axios.delete(`https://ranasinghemotors-backend.onrender.com/api/vendors/${id}`);
                 setVendors(vendors.filter((vendor) => vendor._id !== id));
             } catch (error) {
                 console.error("Error deleting vendor", error);
@@ -39,7 +39,7 @@ export default function ViewVendors() {
 
     const handleSave = async (id) => {
         try {
-            await axios.put(`http://localhost:5001/api/vendors/${id}`, editData);
+            await axios.put(`https://ranasinghemotors-backend.onrender.com/api/vendors/${id}`, editData);
             setVendors(vendors.map(vendor => vendor._id === id ? { ...vendor, ...editData } : vendor));
             setEditingId(null);
         } catch (error) {

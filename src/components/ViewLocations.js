@@ -14,7 +14,7 @@ export default function ViewLocations() {
 
     const fetchLocations = async () => {
         try {
-            const response = await axios.get("http://localhost:5001/api/locations");
+            const response = await axios.get("https://ranasinghemotors-backend.onrender.com/api/locations");
             setLocations(response.data);
         } catch (error) {
             console.error("Error fetching locations", error);
@@ -24,7 +24,7 @@ export default function ViewLocations() {
     const handleDelete = async (id) => {
         if (window.confirm("Are you sure you want to delete this location?")) {
             try {
-                await axios.delete(`http://localhost:5001/api/locations/${id}`);
+                await axios.delete(`https://ranasinghemotors-backend.onrender.com/api/locations/${id}`);
                 setLocations(locations.filter((location) => location._id !== id));
             } catch (error) {
                 console.error("Error deleting location", error);
@@ -39,7 +39,7 @@ export default function ViewLocations() {
 
     const handleSave = async (id) => {
         try {
-            await axios.put(`http://localhost:5001/api/locations/${id}`, editData);
+            await axios.put(`https://ranasinghemotors-backend.onrender.com/api/locations/${id}`, editData);
             setLocations(locations.map(loc => loc._id === id ? { ...loc, ...editData } : loc));
             setEditingId(null);
         } catch (error) {

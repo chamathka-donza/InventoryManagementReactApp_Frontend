@@ -16,7 +16,7 @@ export default function AddLocation() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5001/api/locations", location);
+            await axios.post("https://ranasinghemotors-backend.onrender.com/api/locations", location);
             alert("Location added successfully!");
             setLocation({ loc_code: "", loc_name: "", loc_address: "" });
         } catch (error) {

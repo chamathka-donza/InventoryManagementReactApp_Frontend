@@ -14,7 +14,7 @@ export default function AddBrand() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:5001/api/brands", brand);
+            await axios.post("https://ranasinghemotors-backend.onrender.com/api/brands", brand);
             navigate("/view-brands");
         } catch (error) {
             console.error("Error adding brand", error);

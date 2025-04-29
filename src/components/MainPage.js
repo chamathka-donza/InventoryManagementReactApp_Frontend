@@ -12,7 +12,7 @@ const MainPage = () => {
     }, []);
 
     const handleFetchData = async () => {
-        const response = await fetch('http://localhost:5001/api/products');
+        const response = await fetch('https://ranasinghemotors-backend.onrender.com/api/products');
         const data = await response.json();
         const dataWithUniqueIds = data.map((item) => ({ ...item, id: item._id }));
         setRows(dataWithUniqueIds);

@@ -36,9 +36,9 @@ const AddProduct = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const brandRes = await axios.get('http://localhost:5001/api/brands');
-                const locationRes = await axios.get('http://localhost:5001/api/locations');
-                const vendorRes = await axios.get('http://localhost:5001/api/vendors');
+                const brandRes = await axios.get('https://ranasinghemotors-backend.onrender.com/api/brands');
+                const locationRes = await axios.get('https://ranasinghemotors-backend.onrender.com/api/locations');
+                const vendorRes = await axios.get('https://ranasinghemotors-backend.onrender.com/api/vendors');
                 
                 setBrands(brandRes.data);
                 setLocations(locationRes.data);
@@ -70,7 +70,7 @@ const AddProduct = () => {
         };
 
         try {
-            await axios.post('http://localhost:5001/api/products', newProduct);
+            await axios.post('https://ranasinghemotors-backend.onrender.com/api/products', newProduct);
             setSnackbarMessage('Product added successfully!');
             setSnackbarSeverity('success');
             setOpenSnackbar(true);

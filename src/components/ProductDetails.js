@@ -16,7 +16,7 @@ const ProductDetails = () => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`http://localhost:5001/api/products/${id}`);
+                const response = await axios.get(`https://ranasinghemotors-backend.onrender.com/api/products/${id}`);
                 setProduct(response.data);
                 setUpdatedProduct({
                     ...response.data,
@@ -29,9 +29,9 @@ const ProductDetails = () => {
 
         const fetchDropdowns = async () => {
             try {
-                const brandRes = await axios.get("http://localhost:5001/api/brands");
-                const locationRes = await axios.get("http://localhost:5001/api/locations");
-                const vendorRes = await axios.get("http://localhost:5001/api/vendors");
+                const brandRes = await axios.get("https://ranasinghemotors-backend.onrender.com/api/brands");
+                const locationRes = await axios.get("https://ranasinghemotors-backend.onrender.com/api/locations");
+                const vendorRes = await axios.get("https://ranasinghemotors-backend.onrender.com/api/vendors");
 
                 setBrands(brandRes.data);
                 setLocations(locationRes.data);
@@ -57,7 +57,7 @@ const ProductDetails = () => {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`http://localhost:5001/api/products/${id}`, updatedProduct);
+            await axios.put(`https://ranasinghemotors-backend.onrender.com/api/products/${id}`, updatedProduct);
             setProduct(updatedProduct);
             setEditMode(false);
         } catch (error) {
@@ -68,7 +68,7 @@ const ProductDetails = () => {
     const handleDelete = async () => {
         if (window.confirm("Are you sure you want to delete this Product?")) {
         try {
-            await axios.delete(`http://localhost:5001/api/products/${id}`);
+            await axios.delete(`https://ranasinghemotors-backend.onrender.com/api/products/${id}`);
             navigate("/"); // Redirect to inventory list after deletion
         } catch (error) {
             console.error("Error deleting product:", error);
