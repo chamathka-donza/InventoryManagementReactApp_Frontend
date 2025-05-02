@@ -57,13 +57,21 @@ const ProductDetails = () => {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`https://ranasinghemotors-backend.onrender.com/api/products/${id}`, updatedProduct);
+            const payload = {
+                ...updatedProduct,
+                brand_code: updatedProduct.brand_code?.brand_code || updatedProduct.brand_code,
+                loc_code: updatedProduct.loc_code?.loc_code || updatedProduct.loc_code,
+                vendor_code: updatedProduct.vendor_code?.vendor_code || updatedProduct.vendor_code,
+            };
+    
+            await axios.put(`https://ranasinghemotors-backend.onrender.com/api/products/${id}`, payload);
             setProduct(updatedProduct);
             setEditMode(false);
         } catch (error) {
-            console.error("Error updating product:", error);
+            console.error("Error updating product:", error.response?.data || error.message);
         }
     };
+    
 
     const handleDelete = async () => {
         if (window.confirm("Are you sure you want to delete this Product?")) {
@@ -92,32 +100,13 @@ const ProductDetails = () => {
 
                         {/* Brand Field */}
                         <Grid item xs={12} sm={6}>
-                            {editMode ? (
-                                <FormControl fullWidth>
-                                    <InputLabel>Brand</InputLabel>
-                                    <Select
-                                        name="brand_code"
-                                        value={updatedProduct.brand_code || ""}
-                                        onChange={(e) => {
-                                            const selectedBrand = brands.find((b) => b.brand_code === e.target.value);
-                                            setUpdatedProduct({ ...updatedProduct, brand_code: selectedBrand || null });
-                                        }}
-                                    >
-                                        {brands.map((b) => (
-                                            <MenuItem key={b._id} value={b.brand_code}>
-                                                {b.brand_name} {/* Show Brand Name instead of Code */}
-                                            </MenuItem>
-                                        ))}
-                                    </Select>
-                                </FormControl>
-                            ) : (
-                                <TextField
-                                    label="Brand Name"
-                                    value={updatedProduct.brand_code ? updatedProduct.brand_code.brand_name : "Unknown"}
-                                    disabled
-                                    fullWidth
-                                />
-                            )}
+                        <TextField
+                                label="Brand Name"
+                                value={updatedProduct.brand_code?.brand_name || "Unknown"}
+                                disabled
+                                fullWidth
+                            />
+
                         </Grid>
 
                         <Grid item xs={12} sm={6}>
