@@ -4,7 +4,7 @@ import { Paper, Button, Box, Link  } from '@mui/material';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
-const paginationModel = { page: 0, pageSize: 5 };
+const paginationModel = { page: 0, pageSize: 10 };
 
 export default function InventoryTable({ rows, setRows }) {
     const navigate = useNavigate();
@@ -234,7 +234,7 @@ export default function InventoryTable({ rows, setRows }) {
                 rows={rows}
                 columns={columns}
                 initialState={{ pagination: { paginationModel } }}
-                pageSizeOptions={[5, 10]}
+                pageSizeOptions={[5, 10, 20, 30, 50, 100]}
                 sx={{
                     '& .MuiDataGrid-cell': {
                         overflow: 'hidden',

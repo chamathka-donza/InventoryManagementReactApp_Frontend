@@ -16,7 +16,11 @@ export default function AddLocation() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("https://ranasinghemotors-backend.onrender.com/api/locations", location);
+            const payload = {
+                ...location,
+                loc_address: location.loc_address.trim() === "" ? "-" : location.loc_address,
+            };
+            await axios.post("https://ranasinghemotors-backend.onrender.com/api/locations", payload);
             alert("Location added successfully!");
             setLocation({ loc_code: "", loc_name: "", loc_address: "" });
         } catch (error) {
@@ -44,8 +48,7 @@ export default function AddLocation() {
                     onChange={handleChange} 
                     fullWidth 
                     multiline 
-                    rows={3} 
-                    required 
+                    rows={3}  
                     sx={{ mb: 2 }} 
                 />
                 <Button type="submit" variant="contained" color="primary" fullWidth>Add Location</Button>
