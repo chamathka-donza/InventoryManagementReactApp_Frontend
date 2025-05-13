@@ -62,12 +62,6 @@ export default function Sidebar({ open, toggleSidebar }) {
               </ListItemIcon>
               <ListItemText primary="Add Product" />
             </ListItem>
-            <ListItem button onClick={toggleSidebar}>
-              <ListItemIcon>
-                <DeleteIcon sx={{ color: "#FFFFFF" }} />
-              </ListItemIcon>
-              <ListItemText primary="Delete Product" />
-            </ListItem>
           </List>
         </Collapse>
 

@@ -125,7 +125,7 @@ const AddProduct = () => {
                             </FormControl>
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField label="Description" fullWidth variant="outlined" value={description} onChange={(e) => setDescription(e.target.value)} required />
+                            <TextField label="Description" fullWidth variant="outlined" value={description} onChange={(e) => setDescription(e.target.value)} />
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <TextField label="Manufacture Country" fullWidth variant="outlined" value={manufCountry} onChange={(e) => setManufCountry(e.target.value)} required />
@@ -137,10 +137,10 @@ const AddProduct = () => {
                             <TextField label="Size" fullWidth variant="outlined" value={size} onChange={(e) => setSize(e.target.value)} required />
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <TextField label="Engine Model" fullWidth variant="outlined" value={engineModel} onChange={(e) => setEngineModel(e.target.value)} required />
+                            <TextField label="Engine Model" fullWidth variant="outlined" value={engineModel} onChange={(e) => setEngineModel(e.target.value)} />
                         </Grid>
                         <Grid item xs={12}>
-                            <TextField label="Vehicle" fullWidth variant="outlined" value={vehicle} onChange={(e) => setVehicle(e.target.value)} required />
+                            <TextField label="Vehicle" fullWidth variant="outlined" value={vehicle} onChange={(e) => setVehicle(e.target.value)} />
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <FormControl fullWidth variant="outlined">
