@@ -16,10 +16,10 @@ const Footer = () => {
         >
             <Container>
                 <Typography variant="body1">
-                    &copy; {new Date().getFullYear()} Ranasinghe Moters. All Rights Reserved.
+                    &copy; {new Date().getFullYear()} Ranasinghe Motors. All Rights Reserved.
                 </Typography>
                 <Typography variant="body2">
-                    Address: Main Street, Panchikawatta, Colombo 3, Sri Lanka
+                    Address: No.174, Panchikawatta Road, Colombo 10, Sri Lanka
                 </Typography>
                 <Typography variant="body2">Phone: +94714100525 | Email: ravinduperera@gmail.com</Typography>
             </Container>
