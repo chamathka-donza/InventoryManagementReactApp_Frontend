@@ -16,7 +16,11 @@ export default function AddVendor() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.post("https://ranasinghemotors-backend.onrender.com/api/vendors", vendor);
+            const payload = {
+                ...vendor,
+                contact_no: vendor.contact_no.trim() === "" ? "-" : vendor.contact_no,
+            };
+            await axios.post("https://ranasinghemotors-backend.onrender.com/api/vendors", payload);
             alert("Vendor added successfully!");
             setVendor({ vendor_code: "", vendor_name: "", contact_no: "" });
         } catch (error) {
@@ -43,7 +47,6 @@ export default function AddVendor() {
                     value={vendor.contact_no} 
                     onChange={handleChange} 
                     fullWidth 
-                    required 
                     sx={{ mb: 2 }} 
                 />
                 <Button type="submit" variant="contained" color="primary" fullWidth>Add Vendor</Button>
